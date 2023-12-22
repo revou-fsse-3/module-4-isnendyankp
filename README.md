@@ -1,6 +1,10 @@
 # About Project
 
-This project learn create simple form with vitereact form by using tailwindcss & formik  
+This project learn create simple mutiple form with vitereact form and learn using tailwindcss, formik & yup validation.
+
+## link project
+
+https://polite-cendol-56d301.netlify.app/
 
 ## Create Project
 
