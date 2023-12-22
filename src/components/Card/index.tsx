@@ -34,5 +34,10 @@ export default Card;
 
 
 // Explanation:
-//  <div className={`${border && 'rounded border-slate-600 border'} p-2`}> 
+//  1. <div className={`${border && 'rounded border-slate-600 border'} p-8`}> 
 //  kalo bordernya ada maka memakai rounded border-slate-600 border dan kalo bordernya tidak ada maka menggunakan p-2
+
+//  2. <div className={`${border && 'rounded border-slate-600 border'} p-8 ${props.className}`}>
+//  sebelumnya membuat extend React.HTMLAttributes<HTMLDivElement> untuk props.className
+//  lalu masukan spread ...props ke Card component
+//  menambahkan props.className ke div element biar tidak beradu card yang 1 dengan card yang lainnya
