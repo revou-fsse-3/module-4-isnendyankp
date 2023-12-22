@@ -64,11 +64,9 @@ const HomeContainer = () => {
   console.log(formMik);
   return (
     <Card border={false} className=" ">
-
       {/* Multiple step form */}
-      
-      <Card border>
 
+      <Card border>
         {/* Step 1: Personal information = FullName, Email Address, Date of birth */}
 
         {step === 1 && (
@@ -191,45 +189,52 @@ const HomeContainer = () => {
           </form>
         )}
 
-        {step === 3 && <div>C</div>}
-      </Card>
+        {/* Step 3  Account Information = Username & Password */}
 
-      {/* Step 3  Account Information = Username & Password */}
-      <Card border>
-        <form onSubmit={formMik.handleSubmit}>
-          {/* Input Username */}
-          <div className="m-1">
-            <Text>{'Username'}</Text>
-            <Input
-              className="block border-emerald-700 border"
-              name={'username'}
-              value={formMik.values.username}
-              onChange={formMik.handleChange('username')}
+        {step === 3 && (
+          <form onSubmit={formMik.handleSubmit}>
+            {/* Input Username */}
+            <div className="m-1">
+              <Text>{'Username'}</Text>
+              <Input
+                className="block border-emerald-700 border"
+                name={'username'}
+                value={formMik.values.username}
+                onChange={formMik.handleChange('username')}
+              />
+              {/* add error validation text with yup for input nama */}
+              {formMik.errors.username && (
+                <Text>{formMik.errors.username}</Text>
+              )}
+            </div>
+            {/* Input Password */}
+            <div className="m-1">
+              <Text>{'Password'}</Text>
+              <Input
+                className="block border-emerald-700 border"
+                name={'password'}
+                value={formMik.values.password}
+                onChange={formMik.handleChange('password')}
+              />
+              {/* add error validation text with yup for input umur */}
+              {formMik.errors.password && (
+                <Text>{formMik.errors.password}</Text>
+              )}
+            </div>
+            {/* Button previous */}
+            <Button
+              label={'Previous'}
+              type={'submit'}
+              className={'bg-green-500'}
             />
-            {/* add error validation text with yup for input nama */}
-            {formMik.errors.username && <Text>{formMik.errors.username}</Text>}
-          </div>
-          {/* Input Password */}
-          <div className="m-1">
-            <Text>{'Password'}</Text>
-            <Input
-              className="block border-emerald-700 border"
-              name={'password'}
-              value={formMik.values.password}
-              onChange={formMik.handleChange('password')}
+            {/* Button Submit */}
+            <Button
+              label={'Submit'}
+              type={'submit'}
+              className={'bg-green-500'}
             />
-            {/* add error validation text with yup for input umur */}
-            {formMik.errors.password && <Text>{formMik.errors.password}</Text>}
-          </div>
-          {/* Button previous */}
-          <Button
-            label={'Previous'}
-            type={'submit'}
-            className={'bg-green-500'}
-          />
-          {/* Button Submit */}
-          <Button label={'Submit'} type={'submit'} className={'bg-green-500'} />
-        </form>
+          </form>
+        )}
       </Card>
     </Card>
   );
