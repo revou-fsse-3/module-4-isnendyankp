@@ -75,8 +75,26 @@ npm install formik --save
 
 npm i yup
 
-##  component folder
+##  Structure src folder
 
-1. create new components folder in src folder
-2. create new input folder in components folder
-3. create new index.tsx file in input folder
+Structure src folder:
+    - assets
+        - images
+            - logo.png
+    - components
+        - Button Folder
+            - Button.tsx
+        - Card Folder
+            - Card.tsx
+        - Input Folder
+            - Input.tsx
+        - Text Folder
+            - Text.tsx
+        - index.tsx for export all component distributor
+    - containers
+        - HomeContainer folder
+            - HomeContainer.tsx
+        - index.tsx for export all container distributor
+    - App.css
+    - App.tsx
+    - vite-env.d.ts
