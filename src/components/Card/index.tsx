@@ -8,9 +8,9 @@ interface Props {
 
 const Card = ({ border, children } : Props) => {
     return (
-        <div className={`${border && 'rounded border-slate-600 border'}`}>
-            {children}
-        </div>
+      <div className={`${border && 'rounded border-slate-600 border'} p-2`}>
+        {children}
+      </div>
     );
 };
 
@@ -24,3 +24,4 @@ export default Card;
 // 5. add children props to interface Props with ReactNode type
 // 6. add children props to Card component with type Props
 // 7. render children props inside Card component
+// 8. add styling padding  with p-2 code tailwind equal to padding: 0.5rem; /* 8px */
