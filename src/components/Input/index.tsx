@@ -20,4 +20,9 @@ export default Input
 //  2. Add type InputProps with InputHTMLAttributes<HTMLInputElement> from react
 //  3. Add props with type InputProps to Input component and spread it to input element
 //  4. styling input element with tailwind className props
-//  5. add spread props to input element 
+//  5. add spread props to input element
+
+
+
+// Explanation:
+//  add spread props to input element biar classNamenya tidak beradu antara className yang di pass in dari HomeContainer dengan className yang di pass in dari input component

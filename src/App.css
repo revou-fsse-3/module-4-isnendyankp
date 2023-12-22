@@ -8,5 +8,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: bisque;
+  background: rgb(161,166,195);
+  background: linear-gradient(90deg, rgba(161,166,195,1) 47%, rgba(0,250,255,1) 100%);
 }

@@ -31,7 +31,7 @@ const HomeContainer = () => {
               <div>
                 <Text>{'Nama'}</Text>
                 <Input
-                  className="block border-neutral-400 border"
+                  className="block border-emerald-700 border"
                   name={'nama'}
                   value={formMik.values.nama}
                   onChange={formMik.handleChange('nama')}
@@ -43,7 +43,7 @@ const HomeContainer = () => {
               <div>
                 <Text>{'Umur'}</Text>
                 <Input
-                  className="block border-neutral-400 border"
+                  className="block border-emerald-700 border"
                   name={'umur'}
                   value={formMik.values.umur}
                   onChange={formMik.handleChange('umur')}
@@ -55,7 +55,7 @@ const HomeContainer = () => {
               <div>
                 <Text>{'Hobi'}</Text>
                 <Input
-                  className="block border-neutral-400 border"
+                  className="block border-emerald-700 border"
                   name={'hobi'}
                   value={formMik.values.hobi}
                   onChange={formMik.handleChange('hobi')}
