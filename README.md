@@ -1,6 +1,6 @@
 # About Project
 
-This project learn create simple mutiple form with vitereact form and learn using tailwindcss, formik & yup validation.
+This project learn create simple multiple step form with vitereact form typescript and this project also using tailwindcss, formik & yup validation.
 
 ## link project
 
