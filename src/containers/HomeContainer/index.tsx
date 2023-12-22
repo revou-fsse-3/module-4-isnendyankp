@@ -1,6 +1,7 @@
 import { Input, Text, Button, Card } from "../../components"
 import { useFormik } from "formik";
 import * as yup from 'yup';
+import { useState } from "react";
 
 const HomeContainer = () => {
   // cr8 useState for step
@@ -63,118 +64,134 @@ const HomeContainer = () => {
   console.log(formMik);
   return (
     <Card border={false} className=" ">
-      {/* Step 1: Personal information = FullName, Email Address, Date of birth */}
-      <Card border>
-        <form onSubmit={formMik.handleSubmit}>
-          <p>Personal Information</p>
-          {/* Input FullName */}
-          <div className="m-1">
-            <Text>{'FullName'}</Text>
-            <Input
-              className="block border-emerald-700 border"
-              name={'nama'}
-              value={formMik.values.fullname}
-              onChange={formMik.handleChange('fullname')}
-            />
-            {/* add error validation text with yup for input nama */}
-            {formMik.errors.fullname && <Text>{formMik.errors.fullname}</Text>}
-          </div>
-          {/* Input Email address */}
-          <div className="m-1">
-            <Text>{'Email Address'}</Text>
-            <Input
-              className="block border-emerald-700 border"
-              name={'email'}
-              value={formMik.values.email}
-              onChange={formMik.handleChange('email')}
-            />
-            {/* add error validation text with yup for input umur */}
-            {formMik.errors.email && <Text>{formMik.errors.email}</Text>}
-          </div>
-          {/* Input Date of birth */}
-          <div className="m-1">
-            <Text>{'Date of birth'}</Text>
-            <Input
-              className="block border-emerald-700 border"
-              name={'date'}
-              value={formMik.values.date}
-              onChange={formMik.handleChange('date')}
-            />
-            {/* add error validation text with yup for input hobi */}
-            {formMik.errors.date && <Text>{formMik.errors.date}</Text>}
-          </div>
-          {/* Button previous */}
-          <Button
-            label={'Previous'}
-            type={'submit'}
-            className={'bg-green-500'}
-          />
-          {/* Button Next */}
-          <Button label={'Next'} type={'submit'} className={'bg-green-500'} />
-        </form>
-      </Card>
 
-      {/* Step 2 Address Information for Street Address, City, State, Zip Code */}
+      {/* Multiple step form */}
+      
       <Card border>
-        <form onSubmit={formMik.handleSubmit}>
-          <p>Address Information</p>
-          {/* Input Street Address */}
-          <div className="m-1">
-            <Text>{'Street Address'}</Text>
-            <Input
-              className="block border-emerald-700 border"
-              name={'alamat'}
-              value={formMik.values.alamat}
-              onChange={formMik.handleChange('alamat')}
+
+        {/* Step 1: Personal information = FullName, Email Address, Date of birth */}
+
+        {step === 1 && (
+          <form onSubmit={formMik.handleSubmit}>
+            <p>Personal Information</p>
+            {/* Input FullName */}
+            <div className="m-1">
+              <Text>{'FullName'}</Text>
+              <Input
+                className="block border-emerald-700 border"
+                name={'nama'}
+                value={formMik.values.fullname}
+                onChange={formMik.handleChange('fullname')}
+              />
+              {/* add error validation text with yup for input nama */}
+              {formMik.errors.fullname && (
+                <Text>{formMik.errors.fullname}</Text>
+              )}
+            </div>
+            {/* Input Email address */}
+            <div className="m-1">
+              <Text>{'Email Address'}</Text>
+              <Input
+                className="block border-emerald-700 border"
+                name={'email'}
+                value={formMik.values.email}
+                onChange={formMik.handleChange('email')}
+              />
+              {/* add error validation text with yup for input umur */}
+              {formMik.errors.email && <Text>{formMik.errors.email}</Text>}
+            </div>
+            {/* Input Date of birth */}
+            <div className="m-1">
+              <Text>{'Date of birth'}</Text>
+              <Input
+                className="block border-emerald-700 border"
+                name={'date'}
+                value={formMik.values.date}
+                onChange={formMik.handleChange('date')}
+              />
+              {/* add error validation text with yup for input hobi */}
+              {formMik.errors.date && <Text>{formMik.errors.date}</Text>}
+            </div>
+            <Button
+              label={'Previous'}
+              onClick={handlePrevious}
+              type={'button'}
+              className={'bg-green-500'}
             />
-            {/* add error validation text with yup for input nama */}
-            {formMik.errors.alamat && <Text>{formMik.errors.alamat}</Text>}
-          </div>
-          {/* Input City */}
-          <div className="m-1">
-            <Text>{'City'}</Text>
-            <Input
-              className="block border-emerald-700 border"
-              name={'kota'}
-              value={formMik.values.kota}
-              onChange={formMik.handleChange('kota')}
+            <Button
+              label={'Next'}
+              onClick={handleNext}
+              type={'button'}
+              className={'bg-green-500'}
             />
-            {/* add error validation text with yup for input umur */}
-            {formMik.errors.kota && <Text>{formMik.errors.kota}</Text>}
-          </div>
-          {/* Input state */}
-          <div className="m-1">
-            <Text>{'State'}</Text>
-            <Input
-              className="block border-emerald-700 border"
-              name={'negara'}
-              value={formMik.values.negara}
-              onChange={formMik.handleChange('negara')}
+          </form>
+        )}
+
+        {/* Step 2 for Address information = Street Address, City, State, Zip Code */}
+
+        {step === 2 && (
+          <form onSubmit={formMik.handleSubmit}>
+            <p>Address Information</p>
+            {/* Input Street Address */}
+            <div className="m-1">
+              <Text>{'Street Address'}</Text>
+              <Input
+                className="block border-emerald-700 border"
+                name={'alamat'}
+                value={formMik.values.alamat}
+                onChange={formMik.handleChange('alamat')}
+              />
+              {/* add error validation text with yup for input nama */}
+              {formMik.errors.alamat && <Text>{formMik.errors.alamat}</Text>}
+            </div>
+            {/* Input City */}
+            <div className="m-1">
+              <Text>{'City'}</Text>
+              <Input
+                className="block border-emerald-700 border"
+                name={'kota'}
+                value={formMik.values.kota}
+                onChange={formMik.handleChange('kota')}
+              />
+              {/* add error validation text with yup for input umur */}
+              {formMik.errors.kota && <Text>{formMik.errors.kota}</Text>}
+            </div>
+            {/* Input state */}
+            <div className="m-1">
+              <Text>{'State'}</Text>
+              <Input
+                className="block border-emerald-700 border"
+                name={'negara'}
+                value={formMik.values.negara}
+                onChange={formMik.handleChange('negara')}
+              />
+              {/* add error validation text with yup for input hobi */}
+              {formMik.errors.negara && <Text>{formMik.errors.negara}</Text>}
+            </div>
+            {/* Input Zip Code */}
+            <div className="m-1">
+              <Text>{'Zip Code'}</Text>
+              <Input
+                className="block border-emerald-700 border"
+                name={'kodepos'}
+                value={formMik.values.kodepos}
+                onChange={formMik.handleChange('kodepos')}
+              />
+              {/* add error validation text with yup for input hobi */}
+              {formMik.errors.kodepos && <Text>{formMik.errors.kodepos}</Text>}
+            </div>
+            {/* Button previous */}
+            <Button
+              label={'Previous'}
+              type={'submit'}
+              className={'bg-green-500'}
             />
-            {/* add error validation text with yup for input hobi */}
-            {formMik.errors.negara && <Text>{formMik.errors.negara}</Text>}
-          </div>
-          {/* Input Zip Code */}
-          <div className="m-1">
-            <Text>{'Zip Code'}</Text>
-            <Input
-              className="block border-emerald-700 border"
-              name={'kodepos'}
-              value={formMik.values.kodepos}
-              onChange={formMik.handleChange('kodepos')}
-            />
-            {/* add error validation text with yup for input hobi */}
-            {formMik.errors.kodepos && <Text>{formMik.errors.kodepos}</Text>}
-          </div>
-          {/* Button previous */}
-          <Button
-            label={'Previous'}
-            type={'submit'}
-            className={'bg-green-500'}
-          />
-          {/* Button Next */}
-          <Button label={'Next'} type={'submit'} className={'bg-green-500'} />
-        </form>
+            {/* Button Next */}
+            <Button label={'Next'} type={'submit'} className={'bg-green-500'} />
+          </form>
+        )}
+
+        {step === 3 && <div>C</div>}
       </Card>
 
       {/* Step 3  Account Information = Username & Password */}
