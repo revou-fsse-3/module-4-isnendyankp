@@ -27,3 +27,8 @@ export default Card;
 // 7. render children props inside Card component
 // 8. add styling padding  with p-2 code tailwind equal to padding: 0.5rem; /* 8px */
 // 9. import ReactNode from react
+
+
+// Explanation:
+//  <div className={`${border && 'rounded border-slate-600 border'} p-2`}> 
+//  kalo bordernya ada maka memakai rounded border-slate-600 border dan kalo bordernya tidak ada maka menggunakan p-2
