@@ -25,7 +25,7 @@ const HomeContainer = () => {
     });
         console.log(formMik);
         return (
-          <>
+          <Card border>
             <form onSubmit={formMik.handleSubmit}>
               {/* Input Nama */}
               <div>
@@ -70,7 +70,7 @@ const HomeContainer = () => {
                 className={'bg-green-500'}
               />
             </form>
-          </>
+          </Card>
         );
 }
 
@@ -109,3 +109,4 @@ export default HomeContainer
 // 30. add FormProps type to onSubmit props with type FormProps
 // 31. add console.log(formMik) to check formMik
 // 32. import Card component
+// 33. render with pass in Card component with border props & value true to add border to Card component & wrap all element inside Card component with Card component 
