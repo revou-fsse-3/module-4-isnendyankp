@@ -28,7 +28,7 @@ const HomeContainer = () => {
           <Card border>
             <form onSubmit={formMik.handleSubmit}>
               {/* Input Nama */}
-              <div>
+              <div className="m-1">
                 <Text>{'Nama'}</Text>
                 <Input
                   className="block border-emerald-700 border"
@@ -40,7 +40,7 @@ const HomeContainer = () => {
                 {formMik.errors.nama && <Text>{formMik.errors.nama}</Text>}
               </div>
               {/* Input Umur */}
-              <div>
+              <div className="m-1">
                 <Text>{'Umur'}</Text>
                 <Input
                   className="block border-emerald-700 border"
@@ -52,7 +52,7 @@ const HomeContainer = () => {
                 {formMik.errors.umur && <Text>{formMik.errors.umur}</Text>}
               </div>
               {/* Input Hobi */}
-              <div>
+              <div className="m-1">
                 <Text>{'Hobi'}</Text>
                 <Input
                   className="block border-emerald-700 border"
@@ -109,4 +109,5 @@ export default HomeContainer
 // 30. add FormProps type to onSubmit props with type FormProps
 // 31. add console.log(formMik) to check formMik
 // 32. import Card component
-// 33. render with pass in Card component with border props & value true to add border to Card component & wrap all element inside Card component with Card component 
+// 33. render with pass in Card component with border props & value true to add border to Card component & wrap all element inside Card component with Card component
+// 34. add styling margin with tailwind code m-1 to div element
