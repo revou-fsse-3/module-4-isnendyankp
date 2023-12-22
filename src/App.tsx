@@ -6,7 +6,7 @@ function App() {
   
 
   return (
-    <div>
+    <div className='app'>
       <HomeContainer />
     </div>
   );
@@ -18,6 +18,7 @@ export default App
 // 1. cr8 App component
 // 2. import HomeContainer component
 // 3. render with pass in HomeContainer component
+// 4. Add className props to div component with value display flex and justify center
 
 
 

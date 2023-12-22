@@ -23,7 +23,7 @@ const HomeContainer = () => {
         hobi: yup.string().required('Hobi nya apa nih?')
       }),
     });
-
+        console.log(formMik);
         return (
           <>
             <form onSubmit={formMik.handleSubmit}>
