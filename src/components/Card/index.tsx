@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 
 
 interface Props {
@@ -25,3 +26,4 @@ export default Card;
 // 6. add children props to Card component with type Props
 // 7. render children props inside Card component
 // 8. add styling padding  with p-2 code tailwind equal to padding: 0.5rem; /* 8px */
+// 9. import ReactNode from react
