@@ -51,14 +51,14 @@ const HomeContainer = () => {
     onSubmit: (values: FormProps) => console.log(values),
     validationSchema: yup.object({
       fullname: yup.string().required('Nama tidak boleh kosong'),
-      email: yup.string().required('Email tidak boleh kosong'),
+      email: yup.string().email('Email tidak valid').required('Email tidak boleh kosong'),
       date: yup.string().required('Tanggal lahir tidak boleh kosong'),
       alamat: yup.string().required('Alamat tidak boleh kosong'),
       kota: yup.string().required('Kota tidak boleh kosong'),
       negara: yup.string().required('Negara tidak boleh kosong'),
       kodepos: yup.string().required('Kodepos tidak boleh kosong'),
       username: yup.string().required('Username tidak boleh kosong'),
-      password: yup.string().required('Password tidak boleh kosong'),
+      password: yup.string().min(8, 'Password minimal 8 karakter').required('Password tidak boleh kosong'),
     }),
   });
   console.log(formMik);
@@ -297,3 +297,4 @@ export default HomeContainer
 // 43. add setStep with prevState to add step - 1
 // 44. pass in all form 3 step into condition multiple step form
 // 45. fix button for step 1, 2 & 3
+// 46. edit validationSchema for email & password
