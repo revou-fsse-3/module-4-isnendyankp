@@ -3,6 +3,9 @@ import { useFormik } from "formik";
 import * as yup from 'yup';
 
 const HomeContainer = () => {
+  
+  // cr8 useState for step
+  const [step, setStep] = useState<number>(1);
 
     interface FormProps {
         fullname: string;
