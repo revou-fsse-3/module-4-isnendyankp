@@ -110,12 +110,14 @@ const HomeContainer = () => {
               {/* add error validation text with yup for input hobi */}
               {formMik.errors.date && <Text>{formMik.errors.date}</Text>}
             </div>
+            {/* Button previous */}
             <Button
               label={'Previous'}
               onClick={handlePrevious}
               type={'button'}
               className={'bg-green-500'}
             />
+            {/* Button Next */}
             <Button
               label={'Next'}
               onClick={handleNext}
@@ -185,6 +187,7 @@ const HomeContainer = () => {
               type={'button'}
               className={'bg-green-500'}
             />
+            {/* Button Next */}
             <Button
               label={'Next'}
               onClick={handleNext}
@@ -229,7 +232,8 @@ const HomeContainer = () => {
             {/* Button previous */}
             <Button
               label={'Previous'}
-              type={'submit'}
+              onClick={handlePrevious}
+              type={'button'}
               className={'bg-green-500'}
             />
             {/* Button Submit */}
@@ -292,4 +296,4 @@ export default HomeContainer
 // 42. add condition if step === 1 then return
 // 43. add setStep with prevState to add step - 1
 // 44. pass in all form 3 step into condition multiple step form
-// 45. fix button for step 1 & 2 with add type button
+// 45. fix button for step 1, 2 & 3
