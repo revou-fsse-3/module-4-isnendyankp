@@ -7,12 +7,12 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 
-const Card = ({ border, children } : Props) => {
-    return (
-      <div className={`${border && 'rounded border-slate-600 border'} p-8`}>
-        {children}
-      </div>
-    );
+const Card = ({ border, children, ...props }: Props) => {
+  return (
+    <div className={`${border && 'rounded border-slate-600 border'} p-8`}>
+      {children}
+    </div>
+  );
 };
 
 export default Card;
@@ -29,6 +29,7 @@ export default Card;
 // 9. import ReactNode from react
 // 10. styling padding with tailwind code p-8
 // 11. add extends React.HTMLAttributes<HTMLDivElement> for create props.className
+// 12. add ...props as a parameter to Card component and spread it to div element
 
 
 // Explanation:
