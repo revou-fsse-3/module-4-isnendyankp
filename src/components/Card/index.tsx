@@ -9,7 +9,7 @@ interface Props {
 
 const Card = ({ border, children } : Props) => {
     return (
-      <div className={`${border && 'rounded border-slate-600 border'} p-2`}>
+      <div className={`${border && 'rounded border-slate-600 border'} p-8`}>
         {children}
       </div>
     );
@@ -27,6 +27,7 @@ export default Card;
 // 7. render children props inside Card component
 // 8. add styling padding  with p-2 code tailwind equal to padding: 0.5rem; /* 8px */
 // 9. import ReactNode from react
+// 10. styling padding with tailwind code p-8
 
 
 // Explanation:
