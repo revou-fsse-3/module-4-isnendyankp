@@ -8,9 +8,9 @@ interface Props {
 
 const Card = ({ border, children } : Props) => {
     return (
-      <div
-        className={`${border && 'rounded border-slate-600 border'}`}
-      ></div>
+        <div className={`${border && 'rounded border-slate-600 border'}`}>
+            {children}
+        </div>
     );
 };
 
@@ -23,3 +23,4 @@ export default Card;
 // 4. add condition to className with border props value true and add rounded and border slate 600 border to className value
 // 5. add children props to interface Props with ReactNode type
 // 6. add children props to Card component with type Props
+// 7. render children props inside Card component
