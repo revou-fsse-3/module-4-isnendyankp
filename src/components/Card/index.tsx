@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
 
-interface Props {
-    border: boolean;
-    children: ReactNode;
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+  border: boolean;
+  children: ReactNode;
 }
 
 
@@ -28,6 +28,7 @@ export default Card;
 // 8. add styling padding  with p-2 code tailwind equal to padding: 0.5rem; /* 8px */
 // 9. import ReactNode from react
 // 10. styling padding with tailwind code p-8
+// 11. add extends React.HTMLAttributes<HTMLDivElement> for create props.className
 
 
 // Explanation:
