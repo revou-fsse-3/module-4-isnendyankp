@@ -1,4 +1,4 @@
-import { Input, Text, Button } from "../../components"
+import { Input, Text, Button, Card } from "../../components"
 import { useFormik } from "formik";
 import * as yup from 'yup';
 
@@ -107,3 +107,5 @@ export default HomeContainer
 // 28. add validationSchema for umur & hobi including error validation text
 // 29. cr8 interface FormProps with nama, umur, hobi props with type string
 // 30. add FormProps type to onSubmit props with type FormProps
+// 31. add console.log(formMik) to check formMik
+// 32. import Card component
