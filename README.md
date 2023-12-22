@@ -77,7 +77,8 @@ npm i yup
 
 ##  Structure src folder
 
-Structure src folder:
+Map folder structure:
+
     - assets
         - images
             - logo.png
