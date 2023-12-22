@@ -181,11 +181,16 @@ const HomeContainer = () => {
             {/* Button previous */}
             <Button
               label={'Previous'}
-              type={'submit'}
+              onClick={handlePrevious}
+              type={'button'}
               className={'bg-green-500'}
             />
-            {/* Button Next */}
-            <Button label={'Next'} type={'submit'} className={'bg-green-500'} />
+            <Button
+              label={'Next'}
+              onClick={handleNext}
+              type={'button'}
+              className={'bg-green-500'}
+            />
           </form>
         )}
 
@@ -277,3 +282,14 @@ export default HomeContainer
 // 32. import Card component
 // 33. render with pass in Card component with border props & value true to add border to Card component & wrap all element inside Card component with Card component
 // 34. add styling margin with tailwind code m-1 to div element
+// 35. cr8 useState for step
+// 36. add step state with useState hook with value 1
+// 37. cr8 3 step for form
+// 38. cr8 function handleNext
+// 39. add condition if step === 3 then return
+// 40. add setStep with prevState to add step + 1
+// 41. cr8 function handlePrevious
+// 42. add condition if step === 1 then return
+// 43. add setStep with prevState to add step - 1
+// 44. pass in all form 3 step into condition multiple step form
+// 45. fix button for step 1 & 2 with add type button
