@@ -1,12 +1,12 @@
-const ContactContainer = () => {
+const ListContainer = () => {
   return (
     <div>
-      <h1>Halaman Contact</h1>
+      <h1>Halaman List</h1>
     </div>
   );
 };
 
-export default ContactContainer;
+export default ListContainer;
 
 // Progress:
 // 1. cr8 ContactContainer component
