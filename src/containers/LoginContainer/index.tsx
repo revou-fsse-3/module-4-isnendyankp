@@ -1,12 +1,12 @@
-const AboutContainer = () => {
+const LoginContainer = () => {
   return (
     <div>
-      <h1>Halaman About</h1>
+      <h1>Halaman Login</h1>
     </div>
   );
 };
 
-export default AboutContainer;
+export default LoginContainer;
 
 
 // Progress:
