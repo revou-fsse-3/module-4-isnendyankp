@@ -1,5 +1,5 @@
 import './App.css';
-import { LoginContainer, ListContainer, HomeContainer } from './containers';
+import { LoginContainer, HomeContainer } from './containers';
 import PublicLayout from './layouts/PublicLayout';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ function App() {
       children: [
         { path: '/', element: <HomeContainer /> },
         { path: '/login', element: <LoginContainer /> },
-        { path: '/list', element: <ListContainer /> },
+        // { path: '/list', element: <ListContainer /> },
       ],
     },
     { path: '*', element: <h1>404</h1> },
