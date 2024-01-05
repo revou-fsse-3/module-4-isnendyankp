@@ -47,21 +47,21 @@ const ListContainer = () => {
   // Delete category by id
   async function deleteCategory(id: any) {
     try {
-      await axios.delete(`https://mock-api.arikmpt.com/api/category/${id}`);
+      await axios.delete(`https://mock-api.arikmpt.com/api/category/34506582-54ef-4997-ad9b-1d05b716023c`);
       getCategories(); // refresh categories after one is deleted
     } catch (error) {
       console.error('Error deleting category', error);
     }
   }
+  
 
   // Formik setup for add/update category
   const formik = useFormik({
     initialValues: {
       name: '',
-      // other fields here
     },
 
-    // onSubmit function for submit form
+    // onSubmit function for list category
     onSubmit: async (values, actions) => {
       const { name } = values;
       try {
