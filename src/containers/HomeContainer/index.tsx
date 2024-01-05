@@ -28,7 +28,8 @@ const HomeContainer = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(values),
-      }); 
+      });
+      console.log('success'); 
     },
 
     // validation for username, email & password

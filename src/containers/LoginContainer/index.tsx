@@ -37,6 +37,7 @@ const LoginPage = () => {
         } else {
           // if response is ok, you can use it here
           const data = await response.json();
+          localStorage.setItem('token', data.token);
           console.log(data);
         }
       } catch (error) {
