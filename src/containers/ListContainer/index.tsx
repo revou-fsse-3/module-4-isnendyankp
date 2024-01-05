@@ -45,7 +45,7 @@ const ListContainer = () => {
   }
 
   // Delete category by id
-  async function deleteCategory(id: any) {
+  async function deleteCategory() {
     try {
       await axios.delete(`https://mock-api.arikmpt.com/api/category/34506582-54ef-4997-ad9b-1d05b716023c`);
       getCategories(); // refresh categories after one is deleted
@@ -61,12 +61,19 @@ const ListContainer = () => {
       name: '',
     },
 
+    // validation for category name
+    validationSchema: formValidationSchema,
+
     // onSubmit function for list category
     onSubmit: async (values, actions) => {
       const { name } = values;
       try {
         if (name) {
-          await axios.post('https://mock-api.arikmpt.com/api/category', values);
+          await axios.get('https://mock-api.arikmpt.com/api/category', {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          });
         } else {
           await axios.put(
             'https://mock-api.arikmpt.com/api/category/update',
@@ -79,9 +86,6 @@ const ListContainer = () => {
         console.error('Error saving category', error);
       }
     },
-
-    // validation for category name
-    validationSchema: formValidationSchema,
   });
 
   // Render component

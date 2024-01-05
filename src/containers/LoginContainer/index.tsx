@@ -6,7 +6,6 @@ const LoginPage = () => {
   // interface for form props
   interface FormProps {
     email: string;
-    // name: string;
     password: string;
   }
 
@@ -14,7 +13,6 @@ const LoginPage = () => {
   const formMik = useFormik<FormProps>({
     initialValues: {
       email: '',
-      // name: '',
       password: '',
     },
 
@@ -48,6 +46,7 @@ const LoginPage = () => {
         );
       }
     },
+    
     // validation for username, email & password
     validationSchema: yup.object({
       // name: yup.string().required('name tidak boleh kosong'),
