@@ -45,6 +45,7 @@ const HomeContainer = () => {
     }),
   });
 
+  //  Render component
   return (
     <Card border={false} className=" ">
       <Card border>
