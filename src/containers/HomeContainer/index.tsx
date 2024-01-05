@@ -8,7 +8,7 @@ const HomeContainer = () => {
   // interface for form props
   interface FormProps {
     email: string;
-    username: string;
+    name: string;
     password: string;
   }
 
@@ -16,7 +16,7 @@ const HomeContainer = () => {
   const formMik = useFormik<FormProps>({
     initialValues: {
       email: '',
-      username: '',
+      name: '',
       password: '',
     },
 
@@ -33,7 +33,7 @@ const HomeContainer = () => {
 
     // validation for username, email & password
     validationSchema: yup.object({
-      username: yup.string().required('Username tidak boleh kosong'),
+      name: yup.string().required('name tidak boleh kosong'),
       email: yup
         .string()
         .email('Email tidak valid')
@@ -50,17 +50,17 @@ const HomeContainer = () => {
       <Card border>
         {/* form element */}
         <form onSubmit={formMik.handleSubmit}>
-          {/* Input Username */}
+          {/* Input name */}
           <div className="m-1">
-            <Text>{'Username'}</Text>
+            <Text>{'name'}</Text>
             <Input
               className="block border-emerald-700 border"
-              name={'username'}
-              value={formMik.values.username}
-              onChange={formMik.handleChange('username')}
+              name={'name'}
+              value={formMik.values.name}
+              onChange={formMik.handleChange('name')}
             />
-            {/* add error validation text with yup for input username */}
-            {formMik.errors.username && <Text>{formMik.errors.username}</Text>}
+            {/* add error validation text with yup for input name */}
+            {formMik.errors.name && <Text>{formMik.errors.name}</Text>}
           </div>
 
           {/* Input Email */}
