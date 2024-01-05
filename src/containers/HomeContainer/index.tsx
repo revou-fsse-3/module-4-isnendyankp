@@ -50,7 +50,6 @@ const HomeContainer = () => {
       <Card border>
         {/* form element */}
         <form onSubmit={formMik.handleSubmit}>
-
           {/* Input Username */}
           <div className="m-1">
             <Text>{'Username'}</Text>
@@ -83,6 +82,7 @@ const HomeContainer = () => {
             <Input
               className="block border-emerald-700 border"
               name={'password'}
+              type={'password'}
               value={formMik.values.password}
               onChange={formMik.handleChange('password')}
             />
@@ -91,12 +91,7 @@ const HomeContainer = () => {
           </div>
 
           {/* Button Submit */}
-          <Button
-            label={'Submit'}
-            type={'submit'}
-            className={'bg-green-500'}
-          />
-          
+          <Button label={'Submit'} type={'submit'} className={'bg-green-500'} />
         </form>
       </Card>
     </Card>
