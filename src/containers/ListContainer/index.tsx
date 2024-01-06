@@ -1,124 +1,90 @@
-// /*
-//   create code using react, typescript, tailwindcss, formik, yup validation, crud, for  list page. here task for page list:
-//   1. Category: 
-//   - see list category with API: https://mock-api.arikmpt.com/api/category?page=1&name=mock category
-//   - save category with API: https://mock-api.arikmpt.com/api/category?page=1&name=mock category
-//   - update category with API: https://mock-api.arikmpt.com/api/category/update 
-//   - delete category with API https://mock-api.arikmpt.com/api/category/34506582-54ef-4997-ad9b-1d05b716023c
+import React, { useEffect, useState } from 'react';
+import { deleteCategory, getCategories } from '../../api/categoryApi';
+import { CategoryData } from '../../interfaces/Category';
 
-//   2. All category must be have validation
-// */
+const ListContainer: React.FC = () => {
+  const token = localStorage.getItem('token') ?? '';
+  const [categories, setCategories] = useState<CategoryData[]>([]);
 
-// import { useEffect, useState } from 'react';
-// import { useFormik } from 'formik';
-// import axios from 'axios';
-// import * as yup from 'yup';
-// import { Input, Button} from '../../components';
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await getCategories(token);
+        setCategories(response.data.data);
 
-// // Form validation with yup
-// const formValidationSchema = yup.object({
-//   name: yup.string().required('Category name is required'),
-//   // add more validation rules here
-// });
+        console.log('Dapet bang !');
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchCategories();
+  }, [token]);
 
-// // Category component
-// const ListContainer = () => {
+  const handleEdit = (
+    categoryId: string,
+    categoryName: string,
+    categoryStatus: boolean
+  ) => {
+    console.log(`edit category with ID: ${categoryId}`);
+    console.log(categoryName);
+    console.log(categoryStatus);
+  };
 
-//   // State for categories
-//   // const [categories, setCategories] = useState([]);
+  const handleDelete = async (categoryId: string) => {
+    try {
+      await deleteCategory(categoryId, token);
+      const updatedCategories = categories.filter(
+        (category) => category.id !== categoryId
+      );
+      setCategories(updatedCategories);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-//   // Get categories on component load
-//   useEffect(() => {
-//     getCategories();
-//   }, []);
+  return (
+    <div>
+      <h2 className="text-xl font-semibold text-center">Category List</h2>
+      <table className="table-auto w-full">
+        <thead>
+          <tr>
+            <th className="px-4 py-2">ID</th>
+            <th className="px-4 py-2">Name</th>
+            <th className="px-4 py-2">Status</th>
+            <th className="px-4 py-2">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {categories.map((category) => (
+            <tr key={category.id}>
+              <td className="border px-4 py-2">{category.id}</td>
+              <td className="border px-4 py-2">{category.name}</td>
+              <td className="border px-4 py-2">
+                {category.is_active ? 'Active' : 'Deactive'}
+              </td>
+              <td className="border px-4 py-2">
+                <button
+                  onClick={() =>
+                    handleEdit(category.id, category.name, category.is_active)
+                  }
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(category.id)}
+                  className="ml-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+          <td></td>
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
-//   // Get categories from API
-//   async function getCategories() {
-//     try {
-//       const response = await axios.get(
-//         'https://mock-api.arikmpt.com/api/category?page=1&name=mock category'
-//       );
-//       setCategories(response.data);
-//     } catch (error) {
-//       console.error('Error getting categories', error);
-//     }
-//   }
-
-//   // // Delete category by id
-//   // async function deleteCategory() {
-//   //   try {
-//   //     await axios.delete(`https://mock-api.arikmpt.com/api/category/34506582-54ef-4997-ad9b-1d05b716023c`);
-//   //     getCategories(); // refresh categories after one is deleted
-//   //   } catch (error) {
-//   //     console.error('Error deleting category', error);
-//   //   }
-//   // }
-  
-
-//   // Formik setup for add/update category
-//   const formik = useFormik({
-//     initialValues: {
-//       name: '',
-//     },
-
-//     // validation for category name
-//     validationSchema: formValidationSchema,
-
-//     // onSubmit function for list category
-//     onSubmit: async (values, actions) => {
-//       const { name } = values;
-//       try {
-//         if (name) {
-//           await axios.get('https://mock-api.arikmpt.com/api/category', {
-//             headers: {
-//               Authorization: `Bearer ${localStorage.getItem('token')}`,
-//             },
-//           });
-//         } else {
-//           await axios.put(
-//             'https://mock-api.arikmpt.com/api/category/update',
-//             values
-//           );
-//         }
-//         actions.resetForm();
-//         getCategories(); // refresh categories after one is added/updated
-//       } catch (error) {
-//         console.error('Error saving category', error);
-//       }
-//     },
-//   });
-
-//   // Render component
-//   return (
-//     <div>
-
-//       <h1>Categories</h1>
-
-//       {/* Add/Update Category form */}
-//       <form onSubmit={formik.handleSubmit}>
-//         <Input
-//           id="name"
-//           name="name"
-//           type="text"
-//           onChange={formik.handleChange}
-//           value={formik.values.name}
-//         />
-//         {formik.errors.name ? <div>{formik.errors.name}</div> : null}
-//         <Button type="submit">Save Category</Button>
-//       </form>
-
-//       {/* Category list */}
-//       {/* {categories.map((category) => (
-//         <div key={category.id}>
-//           <p>Name: {category.name}</p>
-//             <Button label="Delete" onClick={() => deleteCategory(category.id)}>Delete</Button>
-//         </div>
-//       ))} */}
-//     </div>
-//   );
-// };
-
-// export default ListContainer;
-
-
-
+export default ListContainer;
