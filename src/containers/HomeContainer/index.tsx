@@ -1,9 +1,11 @@
-import { Input, Text, Button, Card} from "../../components"
-import { useFormik } from "formik";
+import { Input, Text, Button, Card } from '../../components';
+import { useFormik } from 'formik';
 import * as yup from 'yup';
-
+import { useNavigate } from 'react-router-dom';
 
 const HomeContainer = () => {
+  // useNavigate hook
+  const navigate = useNavigate();
 
   // interface for form props
   interface FormProps {
@@ -22,14 +24,16 @@ const HomeContainer = () => {
 
     // onSubmit function for submit form
     onSubmit: async (values) => {
-     await fetch('https://mock-api.arikmpt.com/api/user/register', {
+      await fetch('https://mock-api.arikmpt.com/api/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(values),
       });
-      console.log('success'); 
+      console.log('success');
+      // navigate to login page
+      navigate('/login');
     },
 
     // validation for username, email & password
@@ -98,8 +102,6 @@ const HomeContainer = () => {
       </Card>
     </Card>
   );
-}
+};
 
-export default HomeContainer
-
-
+export default HomeContainer;
