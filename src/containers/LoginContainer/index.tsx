@@ -1,8 +1,12 @@
 import { Input, Text, Button, Card } from '../../components';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
+  // useNavigate hook
+  const navigate = useNavigate();
+
   // interface for form props
   interface FormProps {
     email: string;
@@ -38,15 +42,18 @@ const LoginPage = () => {
           // set token to local storage
           localStorage.setItem('token', data.data.token);
           console.log(data);
+          // navigate to list page
+          navigate('/list');
         }
       } catch (error) {
         // catch any network error or any error thrown in the fetch call
         console.log(
-            'There has been a problem with your fetch operation: ' + (error as Error).message
+          'There has been a problem with your fetch operation: ' +
+            (error as Error).message
         );
       }
     },
-    
+
     // validation for username, email & password
     validationSchema: yup.object({
       // name: yup.string().required('name tidak boleh kosong'),
@@ -66,7 +73,6 @@ const LoginPage = () => {
       <Card border>
         {/* form element */}
         <form onSubmit={formMik.handleSubmit}>
-
           {/* Input Email */}
           <div className="m-1">
             <Text>{'Email'}</Text>
