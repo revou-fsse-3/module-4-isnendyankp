@@ -1,6 +1,12 @@
 import './App.css';
-import { LoginContainer, ListContainer, HomeContainer } from './containers';
-import CreateCategory from './containers/CreateCategoryContainer';
+import {
+  LoginContainer,
+  ListContainer,
+  HomeContainer,
+  CreateCategory,
+  // EditCategory,
+} from './containers';
+
 import PublicLayout from './layouts/PublicLayout';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -13,6 +19,7 @@ function App() {
         { path: '/login', element: <LoginContainer /> },
         { path: '/list', element: <ListContainer /> },
         { path: '/createCategory', element: <CreateCategory /> },
+        // { path: '/editCategory', element: <EditCategory /> },
       ],
     },
     { path: '*', element: <h1>404</h1> },
