@@ -4,7 +4,6 @@ import {
   ListContainer,
   HomeContainer,
   CreateCategory,
-  // EditCategory,
 } from './containers';
 
 import PublicLayout from './layouts/PublicLayout';
@@ -19,7 +18,6 @@ function App() {
         { path: '/login', element: <LoginContainer /> },
         { path: '/list', element: <ListContainer /> },
         { path: '/createCategory', element: <CreateCategory /> },
-        // { path: '/editCategory', element: <EditCategory /> },
       ],
     },
     { path: '*', element: <h1>404</h1> },
