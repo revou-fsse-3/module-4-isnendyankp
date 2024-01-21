@@ -53,7 +53,7 @@ const HomeContainer = () => {
   //  Render component
   return (
     <Card border={false} className=" ">
-      <Card border>
+      <Card border className="bg-white shadow-xl rounded-lg p-8">
         {/* form element */}
         <form onSubmit={formMik.handleSubmit}>
           {/* Input name */}
@@ -98,6 +98,13 @@ const HomeContainer = () => {
 
           {/* Button Submit */}
           <Button label={'Submit'} type={'submit'} className={'bg-green-500'} />
+
+          {/* Button Login */}
+          <Button
+            label={'Login'}
+            onClick={() => navigate('/login')}
+            className={'bg-blue-500 mt-4'}
+          />
         </form>
       </Card>
     </Card>
