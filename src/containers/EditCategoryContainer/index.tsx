@@ -53,9 +53,11 @@ const EditCategory: React.FC<UpdateCategoryFormProps> = ({
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="name">Category Name</label>
+        <label htmlFor="name" className="block mb-1 font-bold">
+          Category Name
+        </label>
         <input
           type="text"
           id="name"
@@ -63,14 +65,17 @@ const EditCategory: React.FC<UpdateCategoryFormProps> = ({
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.name}
+          className="w-full px-2 py-1 border rounded"
         />
         {formik.touched.name && formik.errors.name ? (
-          <div>{formik.errors.name}</div>
+          <div className="text-sm text-red-500">{formik.errors.name}</div>
         ) : null}
       </div>
 
-      <div>
-        <label htmlFor="is_active">Is Active</label>
+      <div className="flex items-center space-x-2">
+        <label htmlFor="is_active" className="font-bold">
+          Is Active
+        </label>
         <input
           type="checkbox"
           id="is_active"
@@ -80,14 +85,25 @@ const EditCategory: React.FC<UpdateCategoryFormProps> = ({
           checked={formik.values.is_active}
         />
         {formik.touched.is_active && formik.errors.is_active ? (
-          <div>{formik.errors.is_active}</div>
+          <div className="text-sm text-red-500">{formik.errors.is_active}</div>
         ) : null}
       </div>
 
-      <button type="button" onClick={onCancel}>
-        Cancel
-      </button>
-      <button type="submit">Update Category</button>
+      <div className="flex space-x-2">
+        <button
+          type="button"
+          onClick={onCancel}
+          className="px-4 py-2 font-bold text-white bg-blue-500 rounded"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          className="px-4 py-2 font-bold text-white bg-green-500 rounded"
+        >
+          Update Category
+        </button>
+      </div>
     </form>
   );
 };
