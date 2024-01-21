@@ -70,7 +70,7 @@ const LoginPage = () => {
 
   return (
     <Card border={false} className=" ">
-      <Card border>
+      <Card border className="bg-white shadow-xl rounded-lg p-8">
         {/* form element */}
         <form onSubmit={formMik.handleSubmit}>
           {/* Input Email */}
@@ -99,6 +99,13 @@ const LoginPage = () => {
             {/* add error validation text with yup for input password */}
             {formMik.errors.password && <Text>{formMik.errors.password}</Text>}
           </div>
+
+          {/* Button Register */}
+          <Button
+            label={'Register'}
+            onClick={() => navigate('/')}
+            className={'bg-blue-500'}
+          />
 
           {/* Button Login */}
           <Button label={'Login'} type={'submit'} className={'bg-green-500'} />
